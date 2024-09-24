@@ -4,7 +4,12 @@ import { Box, Grid, Typography } from '@mui/material';
 
 const Objetivo: React.FC = () => {
   return (
-    <Box bgcolor="transparent" p={5} mb={5} borderRadius={2}>
+    <Box bgcolor="transparent" borderRadius={2}
+    sx={{
+      p: { xs: 0, sm: 5 },
+      mb: 5,
+    }}
+  >
       {/* Título centralizado */}
       <Typography variant="h4" sx={{ fontSize: '36px', textAlign: 'left', color: '#083163', fontWeight: 'bold', mb: 5 }}>
         Objetivos do Desenvolvimento Sustentável
@@ -23,7 +28,7 @@ const Objetivo: React.FC = () => {
 
         {/* Coluna direita com o texto */}
         <Grid item xs={12} md={6}>
-          <Typography variant="body1" sx={{ fontSize: '16px', textAlign: 'justify' }}>
+          <Typography variant="body1" sx={{ fontSize: '16px', textAlign: 'left' }}>
             No mundo corporativo e industrial, os ODS representam negócios mais responsáveis, eficientes, competitivos e transparentes;
             práticas industriais menos agressivas ao meio ambiente e aos recursos naturais; contribuição para o bem-estar geral, saúde e
             qualidade de vida no planeta. Dessa forma, ao adotar uma metodologia condizente com os 17 Objetivos de Desenvolvimento

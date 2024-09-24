@@ -65,7 +65,7 @@ const Values: React.FC = () => {
                       transition: 'background-color 0.3s ease, transform 0.3s ease',
                       '&:hover': {
                         backgroundColor: '#688198',
-                        transform: 'scale(1.05)', // Animação de escala
+                        transform: 'scale(1.05)', 
                       },
                     }}
                     onClick={handleNext} 
@@ -108,7 +108,7 @@ const Values: React.FC = () => {
                   transition: 'background-color 0.3s ease, transform 0.3s ease',
                   '&:hover': {
                     backgroundColor: '#688198',
-                    transform: 'scale(1.05)', // Animação de escala
+                    transform: 'scale(1.05)',
                   },
                 }}
                 onClick={handlePrev} 
@@ -123,7 +123,7 @@ const Values: React.FC = () => {
                   transition: 'background-color 0.3s ease, transform 0.3s ease',
                   '&:hover': {
                     backgroundColor: '#688198',
-                    transform: 'scale(1.05)', // Animação de escala
+                    transform: 'scale(1.05)', 
                   },
                 }}
                 onClick={handleNext} 
@@ -166,7 +166,7 @@ const Values: React.FC = () => {
                   transition: 'background-color 0.3s ease, transform 0.3s ease',
                   '&:hover': {
                     backgroundColor: '#688198',
-                    transform: 'scale(1.05)', // Animação de escala
+                    transform: 'scale(1.05)', 
                   },
                 }}
                 onClick={handlePrev} 
@@ -181,7 +181,7 @@ const Values: React.FC = () => {
                   transition: 'background-color 0.3s ease, transform 0.3s ease',
                   '&:hover': {
                     backgroundColor: '#688198',
-                    transform: 'scale(1.05)', // Animação de escala
+                    transform: 'scale(1.05)', 
                   },
                 }}
                 onClick={handleNext} 

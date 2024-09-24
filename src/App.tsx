@@ -16,12 +16,15 @@ const MainPage: React.FC = () => {
       style={{
         background: 'linear-gradient(#ffffff, #688198)', 
         width: '100vw',
-        height: '100vh',
+        height: '100vh',  
         display: 'flex',
         flexDirection: 'column', 
         justifyContent: 'flex-end', 
         position: 'relative',
         overflow: 'hidden',
+        boxSizing: 'border-box', 
+        margin: 0, 
+        padding: 0, 
       }}
     >
       {/* Div para a imagem de fundo e logo */}
@@ -56,8 +59,6 @@ const MainPage: React.FC = () => {
     </div>
   );
 };
-
-
 
 const HomePage: React.FC = () => {
   return (
