@@ -24,7 +24,7 @@ const MainPage: React.FC = () => {
         overflow: 'hidden',
         boxSizing: 'border-box', 
         margin: 0, 
-        padding: 0, 
+        padding: 0,
       }}
     >
       {/* Div para a imagem de fundo e logo */}
@@ -35,14 +35,14 @@ const MainPage: React.FC = () => {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat', 
           width: '100%', 
-          height: 'calc(100vh - 70px)', 
+          height: 'calc(100vh - 100px)', // Diminui a altura para evitar barra de rolagem
           position: 'relative', 
           overflow: 'hidden',
         }}
       />
 
       {/* Div para o botão */}
-      <div style={{ marginBottom: '30px', textAlign: 'center' }}> {/* Centraliza o botão */}
+      <div style={{ marginBottom: '20px', textAlign: 'center' }}> {/* Ajusta a margem inferior */}
         <Button
           variant="contained"
           onClick={() => window.location.href = '/home'}
@@ -60,9 +60,16 @@ const MainPage: React.FC = () => {
   );
 };
 
+
 const HomePage: React.FC = () => {
   return (
-    <div style={{ background: 'linear-gradient(to bottom, #ffffff, #688198)', minHeight: '100vh' }}>
+    <div
+      style={{
+        background: `url('/imagens/background.svg') no-repeat center center, linear-gradient(to bottom, #ffffff, #688198)`, // Adiciona a imagem e o gradiente
+        backgroundSize: 'cover', 
+        minHeight: '100vh',
+      }}
+    >
       <Container maxWidth="lg" style={{ padding: '20px' }}>
         <Main />
         <Values />
@@ -74,6 +81,7 @@ const HomePage: React.FC = () => {
     </div>
   );
 };
+
 
 const App: React.FC = () => {
   return (
