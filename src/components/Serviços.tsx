@@ -5,7 +5,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const Servicos: React.FC = () => {
-  const [expanded, setExpanded] = useState([false, false, false]);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);  // Controla qual item está expandido no carrossel
 
   const services = [
     {
@@ -79,11 +79,8 @@ const Servicos: React.FC = () => {
   ];
 
   const handleToggleExpand = (index: number) => {
-    setExpanded((prev) => {
-      const newExpanded = [...prev];
-      newExpanded[index] = !newExpanded[index];
-      return newExpanded;
-    });
+    // Se o item clicado estiver expandido, recolhe-o. Caso contrário, expande o novo item e recolhe o anterior.
+    setExpandedIndex(prev => (prev === index ? null : index));
   };
 
   return (
@@ -97,7 +94,12 @@ const Servicos: React.FC = () => {
 
       {/* Carrossel para telas pequenas */}
       <Box display={{ xs: 'block', sm: 'none' }}>
-        <Carousel showThumbs={false} showArrows={true} infiniteLoop={true}>
+        <Carousel 
+          showThumbs={false} 
+          showArrows={true} 
+          infiniteLoop={true}
+          onChange={() => setExpandedIndex(null)}  // Recolhe o conteúdo ao trocar de item
+        >
           {services.map((service, index) => (
             <Card key={index} sx={{ borderRadius: '8px', overflow: 'hidden', position: 'relative' }}>
               <div
@@ -110,10 +112,10 @@ const Servicos: React.FC = () => {
               <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#083163' }}>
                 <Typography sx={{ fontWeight: 'bold', color: "#fff" }}>{service.title}</Typography>
                 <Button onClick={() => handleToggleExpand(index)}>
-                  <ExpandMore sx={{ transform: expanded[index] ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease' }} />
+                  <ExpandMore sx={{ transform: expandedIndex === index ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease' }} />
                 </Button>
               </CardContent>
-              {expanded[index] && (
+              {expandedIndex === index && (  // Expande apenas o conteúdo do item selecionado
                 <Box sx={{ p: 2 }}>
                   <ul style={{ padding: '0 16px' }}>
                     {service.content.map((line, lineIndex) => (
@@ -142,10 +144,10 @@ const Servicos: React.FC = () => {
               <CardContent sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#083163' }}>
                 <Typography sx={{ fontWeight: 'bold', color: "#fff" }}>{service.title}</Typography>
                 <Button onClick={() => handleToggleExpand(index)}>
-                  <ExpandMore sx={{ transform: expanded[index] ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease' }} />
+                  <ExpandMore sx={{ transform: expandedIndex === index ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease' }} />
                 </Button>
               </CardContent>
-              {expanded[index] && (
+              {expandedIndex === index && (
                 <Box sx={{ p: 2 }}>
                   <ul style={{ padding: '0 16px' }}>
                     {service.content.map((line, lineIndex) => (

@@ -35,14 +35,12 @@ const MainPage: React.FC = () => {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat', 
           width: '100%', 
-          height: 'calc(100vh - 100px)', // Diminui a altura para evitar barra de rolagem
-          position: 'relative', 
-          overflow: 'hidden',
+          height: '100vh', 
         }}
       />
 
       {/* Div para o botão */}
-      <div style={{ marginBottom: '20px', textAlign: 'center' }}> {/* Ajusta a margem inferior */}
+      <div style={{ marginBottom: '50px', textAlign: 'center' }}> {/* Ajusta a margem inferior */}
         <Button
           variant="contained"
           onClick={() => window.location.href = '/home'}
