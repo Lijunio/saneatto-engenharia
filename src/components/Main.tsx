@@ -12,11 +12,6 @@ const Main: React.FC = () => {
       justifyContent="center"
       alignItems="center"
     >
-      <img
-        src="/imagens/saneato.png"
-        alt="Logo Saneatto Engenharia"
-        style={{ width: '100%', maxWidth: '500px', height: 'auto', marginTop: '18px' }} 
-      />
 
       {/* Menu suspenso com 3 seções */}
       <Box
@@ -41,9 +36,8 @@ const Main: React.FC = () => {
           {['Quem Somos', 'Serviços', 'Contato'].map((item, index) => (
             <Grid item key={index}>
               <Typography
-                variant="h6"
                 component="a"
-                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} // ID em minúsculo e com hífen
+                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} 
                 style={{ textDecoration: 'none', color: '#000' }}
               >
                 {item}

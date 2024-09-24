@@ -15,7 +15,7 @@ const Objetivo: React.FC = () => {
         {/* Coluna esquerda com a imagem */}
         <Grid item xs={12} md={6}>
           <img 
-            src="/imagens/9.png" // Substitua pelo caminho correto da sua imagem
+            src="/imagens/9.png" 
             alt="Objetivos do Desenvolvimento Sustentável"
             style={{ width: '100%', height: 'auto' }}
           />
