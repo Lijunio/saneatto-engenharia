@@ -40,7 +40,7 @@ const MainPage: React.FC = () => {
       />
 
       {/* Div para o botão */}
-      <div style={{ marginBottom: '50px', textAlign: 'center' }}> {/* Ajusta a margem inferior */}
+      <div style={{ marginBottom: '100px', textAlign: 'center' }}> {/* Ajusta a margem inferior */}
         <Button
           variant="contained"
           onClick={() => window.location.href = '/home'}

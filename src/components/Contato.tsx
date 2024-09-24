@@ -40,7 +40,7 @@ const Contato: React.FC = () => {
               <WhatsAppIcon />
             </IconButton>
             <Link
-              href="https://wa.me/5531992035184?text=Ol%C3%A1%2C%20estava%20vendo%20seu%20site%20e%20tenho%20algumas%20duvidas."
+              href="https://wa.me/5531992035184?text=Ol%C3%A1%21%0AEstava%20vendo%20o%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%3A%0A"
               target="_blank"
               sx={{ color: '#083163', textDecoration: 'none' }}
             >
@@ -53,7 +53,7 @@ const Contato: React.FC = () => {
               <WhatsAppIcon />
             </IconButton>
             <Link
-              href="https://wa.me/5531997996022?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Estava%20vendo%20seu%20site%20e%20tenho%20algumas%20duvidas."
+              href="https://wa.me/5531997996022?text=Ol%C3%A1%20tudo%20bem%3F%0AEstava%20vendo%20o%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%3A%0A"
               target="_blank"
               sx={{ color: '#083163', textDecoration: 'none' }}
             >
