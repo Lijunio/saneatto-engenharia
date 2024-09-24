@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import Main from './components/Main';
+import Values from './components/Values';
+import Experiencia from './components/Experiencia'; 
+import Recursos from './components/Recursos';
+import Servicos from './components/Serviços';
+import Objetivo from './components/Objetivo';
+import Contato from './components/Contato';
+import { Container } from '@mui/material';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ background: 'linear-gradient(to bottom, #ffffff, #688198)', minHeight: '100vh' }}>
+      <Container maxWidth="lg" style={{ padding: '20px' }}>
+        <Main />
+        <Values />
+        <Experiencia />
+        <Servicos />
+        <Recursos />
+        <Objetivo />
+        <Contato />
+      </Container>
     </div>
   );
-}
+};
 
 export default App;
