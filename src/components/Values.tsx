@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Typography, Grid, Card, CardContent, Button } from '@mui/material';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css'; 
-import 'slick-carousel/slick/slick-theme.css';
 
 const Values: React.FC = () => {
-  const [showFirstCard, setShowFirstCard] = useState(true);
+  const [currentCard, setCurrentCard] = useState(1); 
+  const totalCards = 3;
 
-  // Configurações do carrossel
-  const settings = {
-    dots: true,
-    infinite: true, // Habilita o loop do carrossel
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    autoplay: true,
-    autoplaySpeed: 5000,
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentCard((prev) => (prev < totalCards ? prev + 1 : 1));
+    }, 10000); 
+
+    return () => clearInterval(interval); 
+  }, []);
+
+  const handleNext = () => {
+    setCurrentCard((prev) => (prev < totalCards ? prev + 1 : 1));
+  };
+
+  const handlePrev = () => {
+    setCurrentCard((prev) => (prev > 1 ? prev - 1 : totalCards));
   };
 
   return (
@@ -24,14 +26,13 @@ const Values: React.FC = () => {
       id="quem-somos"
       borderRadius={2}
       sx={{
-        minHeight: '500px',
         p: { xs: 0, sm: 5 },
         mb: 5,
       }}
     >
       {/* Primeiro Card: Quem somos */}
-      {showFirstCard && (
-        <Card sx={{ marginBottom: 4, border: '1px solid #ccc' }}>
+      {currentCard === 1 && (
+        <Card sx={{ marginBottom: 4, border: '1px solid #ccc', padding: 2, background: 'linear-gradient(#ffffff, #688198)', height: '560px' }}>
           <CardContent>
             <Typography variant="h4" color="#083163" gutterBottom sx={{ textAlign: 'left', fontWeight: 'bold' }}>
               Quem somos
@@ -61,14 +62,13 @@ const Values: React.FC = () => {
                     sx={{
                       backgroundColor: '#f2f2f2',
                       color: 'black',
-                      animation: 'colorChange 3s infinite',
-                      '@keyframes colorChange': {
-                        '0%': { backgroundColor: '#ffffff' },
-                        '50%': { backgroundColor: '#688198' },
-                        '100%': { backgroundColor: '#ffffff' },
+                      transition: 'background-color 0.3s ease, transform 0.3s ease',
+                      '&:hover': {
+                        backgroundColor: '#688198',
+                        transform: 'scale(1.05)', // Animação de escala
                       },
                     }}
-                    onClick={() => setShowFirstCard(false)} 
+                    onClick={handleNext} 
                   >
                     Próximo
                   </Button>
@@ -79,73 +79,118 @@ const Values: React.FC = () => {
         </Card>
       )}
 
-      {/* Carrossel de Missão, Visão e Valores */}
-      {!showFirstCard && (
-        <Box sx={{ marginBottom: 4 }}>
-          <Slider {...settings}>
-            {[ 
-              { title: 'Missão', text: 'Nossa missão é proporcionar soluções de engenharia inovadoras, eficientes, utilizando o estado da arte em tecnologia de forma personalizada para cada necessidade.' },
-              { title: 'Visão', text: 'Ser a empresa de referência nacional em engenharia e consultoria em recursos hídricos, meio ambiente e geológico-geotécnica, utilizando soluções técnicas inovadoras e de alta capacidade técnica.' },
-              { title: 'Valores', text: ['Ética', 'Transparência', 'Responsabilidade', 'Rigor Técnico', 'Valorizar quem faz nossa empresa', 'Integridade e Credibilidade', 'Sustentabilidade', 'Inovação', 'Empreendedorismo'] },
-            ].map((section, index) => (
-              <div key={index}>
-                <Card sx={{ border: '1px solid #ccc', minHeight: '350px' }}>
-                  <CardContent sx={{ position: 'relative' }}>
-                    <Box
-                      sx={{
-                        backgroundColor: '#083163',
-                        color: 'white',
-                        padding: 2,
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        zIndex: 1,
-                      }}
-                    >
-                      <Typography variant="h5" align="center">
-                        {section.title}
-                      </Typography>
-                    </Box>
-                    {Array.isArray(section.text) ? (
-                      <ul style={{ marginTop: '50px', fontSize: '18px', padding: '0 16px' }}>
-                        {section.text.map((valor) => (
-                          <li key={valor}>{valor}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <Typography sx={{ fontSize: '18px', textAlign: 'left', marginTop: '50px' }}>
-                        {section.text}
-                      </Typography>
-                    )}
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
-          </Slider>
-        </Box>
+      {/* Segundo Card: Missão, Visão e Valores */}
+      {currentCard === 2 && (
+        <Card sx={{ marginBottom: 4, border: '1px solid #ccc', padding: 2, background: 'linear-gradient(#ffffff, #688198)', height: '560px' }}>
+          <CardContent>
+            <Typography variant="h4" color="#083163" gutterBottom sx={{ textAlign: 'left', fontWeight: 'bold' }}>
+              Nossa Filosofia
+            </Typography>
+            <Grid container spacing={2}>
+              {[ 
+                { title: 'Missão', text: 'Nossa missão é proporcionar soluções de engenharia inovadoras, eficientes, utilizando o estado da arte em tecnologia de forma personalizada para cada necessidade.' },
+                { title: 'Visão', text: 'Ser a empresa de referência nacional em engenharia e consultoria em recursos hídricos, meio ambiente e geológico-geotécnica, utilizando soluções técnicas inovadoras e de alta capacidade técnica.' },
+                { title: 'Valores', text: ['Ética', 'Transparência', 'Responsabilidade', 'Rigor Técnico', 'Valorizar quem faz nossa empresa', 'Integridade e Credibilidade', 'Sustentabilidade', 'Inovação', 'Empreendedorismo'] },
+              ].map((item, index) => (
+                <Grid item xs={12} key={index}>
+                  <Typography sx={{ fontSize: '18px', fontFamily: 'Inter, sans-serif', color: '#083163' }}>
+                    <strong>{item.title}:</strong> {Array.isArray(item.text) ? <ul style={{ paddingLeft: '20px' }}>{item.text.map((val, i) => <li key={i}>{val}</li>)}</ul> : item.text}
+                  </Typography>
+                </Grid>
+              ))}
+            </Grid>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '16px' }}>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: '#f2f2f2',
+                  color: 'black',
+                  transition: 'background-color 0.3s ease, transform 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: '#688198',
+                    transform: 'scale(1.05)', // Animação de escala
+                  },
+                }}
+                onClick={handlePrev} 
+              >
+                Voltar
+              </Button>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: '#f2f2f2',
+                  color: 'black',
+                  transition: 'background-color 0.3s ease, transform 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: '#688198',
+                    transform: 'scale(1.05)', // Animação de escala
+                  },
+                }}
+                onClick={handleNext} 
+              >
+                Próximo
+              </Button>
+            </Box>
+          </CardContent>
+        </Card>
       )}
 
-      {/* Botão "Voltar" */}
-      {!showFirstCard && (
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: '#f2f2f2',
-              color: 'black',
-              animation: 'colorChange 3s infinite',
-              '@keyframes colorChange': {
-                '0%': { backgroundColor: '#ffffff' },
-                '50%': { backgroundColor: '#688198' },
-                '100%': { backgroundColor: '#ffffff' },
-              },
-            }}
-            onClick={() => setShowFirstCard(true)} 
-          >
-            Voltar
-          </Button>
-        </Box>
+      {/* Terceiro Card: Clientes, Equipe, Tecnologia, Cooperação e Crescimento */}
+      {currentCard === 3 && (
+        <Card sx={{ marginBottom: 4, border: '1px solid #ccc', padding: 2, background: 'linear-gradient(#ffffff, #688198)', height: '560px' }}>
+          <CardContent>
+            <Typography variant="h4" color="#083163" gutterBottom sx={{ textAlign: 'left', fontWeight: 'bold' }}>
+              Nossa Filosofia
+            </Typography>
+            <Grid container spacing={2}>
+              {[ 
+                { title: 'Clientes', text: 'Nossa meta é atingir o sucesso dos nossos clientes.' },
+                { title: 'Equipe', text: 'Equipe altamente capacitada, composta por profissionais Mestres e Doutores.' },
+                { title: 'Tecnologia', text: 'Buscamos novas e aprimoradas tecnologias e metodologias em nossos trabalhos.' },
+                { title: 'Cooperação', text: 'Apoiamos a colaboração entre a equipe e consultores externos.' },
+                { title: 'Crescimento', text: 'Acreditamos que o crescimento deve ser alinhado às novas tecnologias.' },
+              ].map((item, index) => (
+                <Grid item xs={12} key={index}>
+                  <Typography sx={{ fontSize: '18px', fontFamily: 'Inter, sans-serif', color: '#083163' }}>
+                    <strong>{item.title}:</strong> {item.text}
+                  </Typography>
+                </Grid>
+              ))}
+            </Grid>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '16px' }}>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: '#f2f2f2',
+                  color: 'black',
+                  transition: 'background-color 0.3s ease, transform 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: '#688198',
+                    transform: 'scale(1.05)', // Animação de escala
+                  },
+                }}
+                onClick={handlePrev} 
+              >
+                Voltar
+              </Button>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: '#f2f2f2',
+                  color: 'black',
+                  transition: 'background-color 0.3s ease, transform 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: '#688198',
+                    transform: 'scale(1.05)', // Animação de escala
+                  },
+                }}
+                onClick={handleNext} 
+              >
+                Próximo
+              </Button>
+            </Box>
+          </CardContent>
+        </Card>
       )}
     </Box>
   );

@@ -26,6 +26,9 @@ const Experiencia: React.FC = () => {
 
       <Grid container spacing={2}>
         {[
+           { title: 'Missão', text: 'Nossa missão é proporcionar soluções de engenharia inovadoras, eficientes, utilizando o estado da arte em tecnologia de forma personalizada para cada necessidade.' },
+           { title: 'Visão', text: 'Ser a empresa de referência nacional em engenharia e consultoria em recursos hídricos, meio ambiente e geológico-geotécnica, utilizando soluções técnicas inovadoras e de alta capacidade técnica.' },
+           { title: 'Valores', text: ['Ética', 'Transparência', 'Responsabilidade', 'Rigor Técnico', 'Valorizar quem faz nossa empresa', 'Integridade e Credibilidade', 'Sustentabilidade', 'Inovação', 'Empreendedorismo'] },
           { title: 'Clientes', text: 'Nossa meta é atingir o sucesso dos nossos clientes.' },
           { title: 'Equipe', text: 'Equipe altamente capacitada, composta por profissionais Mestres e Doutores.' },
           { title: 'Tecnologia', text: 'Buscamos novas e aprimoradas tecnologias e metodologias em nossos trabalhos.' },

@@ -19,7 +19,7 @@ const Recursos: React.FC = () => {
     {
       title: "Recursos Hídricos",
       content: "A Saneatto Engenharia conta com equipe técnica de doutores, capazes de desenvolverem e atuarem em toda a gama que envolve a área de recursos hídricos, como elaboração de estudos de disponibilidade hídrica, estudos de bacias hidrográficas, estudos de rompimentos de barragens, etc.",
-      image: "/imagens/4.png" // Imagem correspondente ao card
+      image: "/imagens/4.png" 
     },
     {
       title: "Ruptura Hipotética de Barragens",
@@ -46,25 +46,38 @@ const Recursos: React.FC = () => {
   return (
     <Box sx={{
         background: 'linear-gradient(#ffffff, #688198)', 
-        p: { xs: 3, sm: 5 }, 
+        p: { xs: 0, sm: 5 }, 
         mb: 5,
         borderRadius: 2,
+        height: '100%', 
       }}
     >
+      <Typography variant="h6" sx={{ fontSize: '36px', mb: 2, color:'#083163', fontWeight: 'bold', textAlign: 'left' }}>
+        Recursos Hídricos
+      </Typography>
       <Grid container spacing={5}>
         <Grid item xs={12} md={6}>
-          <Typography variant="h6" sx={{ fontSize: '36px', mb: 2, color:'#083163', fontWeight: 'bold' }}>
-            Recursos Hídricos
-          </Typography>
           <img src="/imagens/hidrico.png" alt="Recursos Hídricos" style={{ width: '100%', height: 'auto' }} />
         </Grid>
 
         <Grid item xs={12} md={6} sx={{ pl: { xs: 0, md: '50px' } }}>
           <Slider {...settings}>
             {cards.map((card, index) => (
-              <Box key={index} sx={{ p: 2, background: '#fff', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-                <Typography sx={{ fontSize: '18px', textAlign: 'justify', mb: 2 }}>{card.content}</Typography>
-                <img src={card.image} alt={`Imagem do card ${index + 1}`} style={{ width: '100%', height: 'auto' }} />
+              <Box 
+                key={index} 
+                sx={{ 
+                  p: 2, 
+                  background: '#fff', 
+                  borderRadius: '8px', 
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)', 
+                  height: '600px', // Defina uma altura fixa para todos os cards
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  justifyContent: 'space-between' 
+                }}
+              >
+                <Typography sx={{ fontSize: '18px', textAlign: 'left', mb: 2 }}>{card.content}</Typography>
+                <img src={card.image} alt={`Imagem do card ${index + 1}`} style={{ width: '100%', height: 'auto', flexShrink: 0 }} />
               </Box>
             ))}
           </Slider>
