@@ -34,6 +34,7 @@ const MainPage: React.FC = () => {
           width: '100%', 
           height: 'calc(100vh - 70px)', 
           position: 'relative', 
+          overflow: 'hidden',
         }}
       />
 
