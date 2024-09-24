@@ -87,7 +87,10 @@ const Servicos: React.FC = () => {
   };
 
   return (
-    <Box id="serviços" bgcolor="transparent" p={5} mb={5} borderRadius={2}>
+    <Box id="serviços" bgcolor="transparent" borderRadius={2} sx={{
+      p: { xs: 0, sm: 5 },
+      mb: 5,
+    }}>
       <Typography variant="h5" sx={{ fontSize: '36px', mb: 3, color: '#083163', fontWeight: 'bold' }}>
         Nossos Serviços
       </Typography>

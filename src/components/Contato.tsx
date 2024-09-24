@@ -7,7 +7,12 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp'; // Importando o ícone 
 
 const Contato: React.FC = () => {
   return (
-    <Box id="contato" bgcolor="transparent" p={5} mb={5} borderRadius={2}>
+    <Box id="contato" borderRadius={2}
+    sx={{
+      background: 'linear-gradient(#ffffff, #688198)',
+      p: { xs: 0, sm: 5 },
+      mb: 5,
+    }}>
       {/* Título centralizado */}
       <Typography variant="h4" sx={{ fontSize: '36px', textAlign: 'center', color: '#083163', fontWeight: 'bold', mb: 5 }}>
         Contato

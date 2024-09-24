@@ -6,7 +6,7 @@ const Objetivo: React.FC = () => {
   return (
     <Box bgcolor="transparent" p={5} mb={5} borderRadius={2}>
       {/* Título centralizado */}
-      <Typography variant="h4" sx={{ fontSize: '36px', textAlign: 'center', color: '#083163', fontWeight: 'bold', mb: 5 }}>
+      <Typography variant="h4" sx={{ fontSize: '36px', textAlign: 'left', color: '#083163', fontWeight: 'bold', mb: 5 }}>
         Objetivos do Desenvolvimento Sustentável
       </Typography>
 

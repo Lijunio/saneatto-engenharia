@@ -8,7 +8,7 @@ const Values: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentCard((prev) => (prev < totalCards ? prev + 1 : 1));
-    }, 10000); 
+    }, 15000); 
 
     return () => clearInterval(interval); 
   }, []);
