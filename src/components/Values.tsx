@@ -32,7 +32,7 @@ const Values: React.FC = () => {
     >
       {/* Primeiro Card: Quem somos */}
       {currentCard === 1 && (
-        <Card sx={{ marginBottom: 4, border: '1px solid #ccc', padding: 2, background: 'linear-gradient(#ffffff, #688198)', height: '560px' }}>
+        <Card sx={{ marginBottom: 4, border: '1px solid #ccc', padding: 2, background: 'linear-gradient(#ffffff, #688198)' }}>
           <CardContent>
             <Typography variant="h4" color="#083163" gutterBottom sx={{ textAlign: 'left', fontWeight: 'bold' }}>
               Quem somos
@@ -81,7 +81,7 @@ const Values: React.FC = () => {
 
       {/* Segundo Card: Missão, Visão e Valores */}
       {currentCard === 2 && (
-        <Card sx={{ marginBottom: 4, border: '1px solid #ccc', padding: 2, background: 'linear-gradient(#ffffff, #688198)', height: '560px' }}>
+        <Card sx={{ marginBottom: 4, border: '1px solid #ccc', padding: 2, background: 'linear-gradient(#ffffff, #688198)'}}>
           <CardContent>
             <Typography variant="h4" color="#083163" gutterBottom sx={{ textAlign: 'left', fontWeight: 'bold' }}>
               Nossa Filosofia
@@ -137,7 +137,7 @@ const Values: React.FC = () => {
 
       {/* Terceiro Card: Clientes, Equipe, Tecnologia, Cooperação e Crescimento */}
       {currentCard === 3 && (
-        <Card sx={{ marginBottom: 4, border: '1px solid #ccc', padding: 2, background: 'linear-gradient(#ffffff, #688198)', height: '560px' }}>
+        <Card sx={{ marginBottom: 4, border: '1px solid #ccc', padding: 2, background: 'linear-gradient(#ffffff, #688198)' }}>
           <CardContent>
             <Typography variant="h4" color="#083163" gutterBottom sx={{ textAlign: 'left', fontWeight: 'bold' }}>
               Nossa Filosofia

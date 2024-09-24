@@ -49,7 +49,6 @@ const Recursos: React.FC = () => {
         p: { xs: 0, sm: 5 }, 
         mb: 5,
         borderRadius: 2,
-        height: '100%', 
       }}
     >
       <Typography variant="h6" sx={{ fontSize: '36px', mb: 2, color:'#083163', fontWeight: 'bold', textAlign: 'left' }}>
@@ -70,7 +69,7 @@ const Recursos: React.FC = () => {
                   background: '#fff', 
                   borderRadius: '8px', 
                   boxShadow: '0 2px 4px rgba(0,0,0,0.1)', 
-                  height: '600px', // Defina uma altura fixa para todos os cards
+                  height: '600px', 
                   display: 'flex', 
                   flexDirection: 'column', 
                   justifyContent: 'space-between' 
