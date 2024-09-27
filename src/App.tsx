@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container, Button } from '@mui/material';
 import './App.css';
@@ -11,6 +11,16 @@ import Objetivo from './components/Objetivo';
 import Contato from './components/Contato';
 
 const MainPage: React.FC = () => {
+  const [isPrimaryColor, setIsPrimaryColor] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsPrimaryColor((prev) => !prev);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div
       style={{
@@ -40,15 +50,18 @@ const MainPage: React.FC = () => {
       />
 
       {/* Div para o botão */}
-      <div style={{ marginBottom: '100px', textAlign: 'center' }}> {/* Ajusta a margem inferior */}
+      <div style={{ marginBottom: '100px', textAlign: 'center' }}>
         <Button
           variant="contained"
           onClick={() => window.location.href = '/home'}
           style={{
-            backgroundColor: '#083163',
-            color: '#fff',
+            background: isPrimaryColor
+              ? 'linear-gradient(90deg, #083163 0%, #ffffff 100%)' 
+              : 'linear-gradient(90deg, #ffffff 0%, #083163 100%)', 
+            color: isPrimaryColor ? '#ffffff' : '#083163', 
             fontSize: '18px',
             padding: '10px 30px',
+            transition: 'background 1s ease, color 1s ease', 
           }}
         >
           Saiba mais
@@ -58,12 +71,11 @@ const MainPage: React.FC = () => {
   );
 };
 
-
 const HomePage: React.FC = () => {
   return (
     <div
       style={{
-        background: `url('/imagens/background.svg') no-repeat center center, linear-gradient(to bottom, #ffffff, #688198)`, // Adiciona a imagem e o gradiente
+        background: `url('/imagens/background.svg') no-repeat center center, linear-gradient(to bottom, #ffffff, #688198)`, 
         backgroundSize: 'cover', 
         minHeight: '100vh',
       }}
@@ -79,7 +91,6 @@ const HomePage: React.FC = () => {
     </div>
   );
 };
-
 
 const App: React.FC = () => {
   return (
