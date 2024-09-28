@@ -79,7 +79,6 @@ const Servicos: React.FC = () => {
   ];
 
   const handleToggleExpand = (index: number) => {
-    // Se o item clicado estiver expandido, recolhe-o. Caso contrário, expande o novo item e recolhe o anterior.
     setExpandedIndex(prev => (prev === index ? null : index));
   };
 
@@ -92,13 +91,12 @@ const Servicos: React.FC = () => {
         Nossos Serviços
       </Typography>
 
-      {/* Carrossel para telas pequenas */}
       <Box display={{ xs: 'block', sm: 'none' }}>
         <Carousel 
           showThumbs={false} 
           showArrows={true} 
           infiniteLoop={true}
-          onChange={() => setExpandedIndex(null)}  // Recolhe o conteúdo ao trocar de item
+          onChange={() => setExpandedIndex(null)}  
         >
           {services.map((service, index) => (
             <Card key={index} sx={{ borderRadius: '8px', overflow: 'hidden', position: 'relative' }}>
@@ -115,7 +113,7 @@ const Servicos: React.FC = () => {
                   <ExpandMore sx={{ transform: expandedIndex === index ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease' }} />
                 </Button>
               </CardContent>
-              {expandedIndex === index && (  // Expande apenas o conteúdo do item selecionado
+              {expandedIndex === index && (  
                 <Box sx={{ p: 2 }}>
                   <ul style={{ padding: '0 16px' }}>
                     {service.content.map((line, lineIndex) => (
@@ -129,7 +127,6 @@ const Servicos: React.FC = () => {
         </Carousel>
       </Box>
 
-      {/* Grid para telas grandes */}
       <Grid container spacing={3} display={{ xs: 'none', sm: 'flex' }}>
         {services.map((service, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>

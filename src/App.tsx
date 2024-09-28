@@ -4,7 +4,6 @@ import { Container, Button } from '@mui/material';
 import './App.css';
 import Main from './components/Main';
 import Values from './components/Values';
-import Experiencia from './components/Experiencia';
 import Servicos from './components/Serviços';
 import Recursos from './components/Recursos';
 import Objetivo from './components/Objetivo';
@@ -37,7 +36,6 @@ const MainPage: React.FC = () => {
         padding: 0,
       }}
     >
-      {/* Div para a imagem de fundo e logo */}
       <div
         style={{
           backgroundImage: `url('/imagens/logo.png')`,
@@ -49,7 +47,6 @@ const MainPage: React.FC = () => {
         }}
       />
 
-      {/* Div para o botão */}
       <div style={{ marginBottom: '100px', textAlign: 'center' }}>
         <Button
           variant="contained"

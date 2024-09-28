@@ -30,7 +30,6 @@ const Values: React.FC = () => {
         mb: 5,
       }}
     >
-      {/* Primeiro Card: Quem somos */}
       {currentCard === 1 && (
         <Card sx={{ marginBottom: 4, border: '1px solid #ccc', padding: 2, background: 'linear-gradient(#ffffff, #688198)' }}>
           <CardContent>
@@ -79,7 +78,6 @@ const Values: React.FC = () => {
         </Card>
       )}
 
-      {/* Segundo Card: Missão, Visão e Valores */}
       {currentCard === 2 && (
         <Card sx={{ marginBottom: 4, border: '1px solid #ccc', padding: 2, background: 'linear-gradient(#ffffff, #688198)'}}>
           <CardContent>

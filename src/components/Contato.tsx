@@ -13,12 +13,10 @@ const Contato: React.FC = () => {
       p: { xs: 0, sm: 5 },
       mb: 5,
     }}>
-      {/* Título centralizado */}
       <Typography variant="h4" sx={{ fontSize: '36px', textAlign: 'center', color: '#083163', fontWeight: 'bold', mb: 5 }}>
         Contato
       </Typography>
 
-      {/* Grid para exibir as informações de contato */}
       <Grid container spacing={5} justifyContent="center">
         {/* E-mail */}
         <Grid item xs={12} md={6} sx={{ textAlign: 'center' }}>
@@ -29,8 +27,7 @@ const Contato: React.FC = () => {
             E-mail: <Link href="mailto:lhr.padua@gmail.com" sx={{ color: '#083163', textDecoration: 'none' }}>lhr.padua@gmail.com</Link>
           </Typography>
         </Grid>
-
-        {/* Telefone com links para WhatsApp */}
+      
         <Grid item xs={12} md={6} sx={{ textAlign: 'center' }}>
           <IconButton>
             <PhoneIcon fontSize="large" sx={{ color: '#083163' }} />

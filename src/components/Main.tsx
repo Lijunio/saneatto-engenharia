@@ -13,7 +13,6 @@ const Main: React.FC = () => {
       alignItems="center"
     >
 
-      {/* Menu suspenso com 3 seções */}
       <Box
         mt={3}
         p={2}

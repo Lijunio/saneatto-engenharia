@@ -10,14 +10,11 @@ const Objetivo: React.FC = () => {
       mb: 5,
     }}
   >
-      {/* Título centralizado */}
       <Typography variant="h4" sx={{ fontSize: '36px', textAlign: 'left', color: '#083163', fontWeight: 'bold', mb: 5 }}>
         Objetivos do Desenvolvimento Sustentável
       </Typography>
 
-      {/* Grid para a imagem e o texto */}
       <Grid container spacing={5}>
-        {/* Coluna esquerda com a imagem */}
         <Grid item xs={12} md={6}>
           <img 
             src="/imagens/9.png" 
@@ -26,7 +23,6 @@ const Objetivo: React.FC = () => {
           />
         </Grid>
 
-        {/* Coluna direita com o texto */}
         <Grid item xs={12} md={6}>
           <Typography variant="body1" sx={{ fontSize: '16px', textAlign: 'left' }}>
             No mundo corporativo e industrial, os ODS representam negócios mais responsáveis, eficientes, competitivos e transparentes;
