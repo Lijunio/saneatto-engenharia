@@ -1,9 +1,8 @@
-// src/components/Contato.tsx
 import React from 'react';
 import { Box, Grid, Typography, IconButton, Link } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp'; // Importando o ícone do WhatsApp
+import WhatsAppIcon from '@mui/icons-material/WhatsApp'; 
 
 const Contato: React.FC = () => {
   return (
@@ -59,6 +58,34 @@ const Contato: React.FC = () => {
           </Typography>
         </Grid>
       </Grid>
+
+{/* Copyright */}
+<Box sx={{ bottom: 10, left: 10, textAlign: 'left' }}>
+  <Typography
+    variant="body2"
+    sx={{
+      color: '#083163',
+      fontSize: '14px',
+      mt: 7,
+      textAlign: { xs: 'center', sm: 'left' }, 
+    }}
+  >
+    © 2025 Saneatto Engenharia. Desenvolvido por{' '}
+    <Link
+      href="https://elijunio.vercel.app/"
+      target="_blank"
+      sx={{ color: '#083163', textDecoration: 'none' }}
+      onMouseOver={(e) => e.currentTarget.style.color = "silver"}  
+      onMouseOut={(e) => e.currentTarget.style.color = "#083163"}  
+    >
+      Elias Ribeiro
+    </Link>
+  </Typography>
+</Box>
+
+
+
+
     </Box>
   );
 };
